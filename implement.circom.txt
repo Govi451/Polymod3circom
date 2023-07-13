@@ -1,0 +1,31 @@
+pragma circom 2.0.0;
+
+template AND() {
+  signal input First;
+  signal input second;
+  signal output final;
+
+  final <== First*second;
+}
+
+template NOT() {
+  signal input second;
+  signal output Y;
+
+  Y <== 1 + second - 2*second;
+}
+
+template OR() {
+  signal input final;
+  signal input Y;
+  signal output Q;
+
+  Q <== final + Y - final*Y;
+}
+
+component main = OR();
+
+/*INPUT = {
+    "a": "0",
+    "b": "1"
+}*/ 
